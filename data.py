@@ -23,6 +23,22 @@ def write_to_table(table_name, vals=list[tuple]):
     db.executemany(f'INSERT INTO {table_name} VALUES(?, ?, ?, ?, ?)', vals)
     db.commit()
     
+def tables():
+    table = []
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = cursor.fetchall()
+    for table_name in tables:
+        table.append(table_name)
+    return table
+
+def table(record):
+    """
+    Read from a table inside SQLite3 database.
+    """
+    cursor.execute(f"SELECT * FROM {record}")
+    tab = cursor.fetchall()
+    return tab
+    
 def create_user(
     email:str,
     password:str,
@@ -65,4 +81,10 @@ def user(tuplwe,email):
         if encryption.check_hash(str(email).encode("UTF-8"), str(user[3]).encode("UTF-8")):
             return user
     
+    return None
+
+def by_id(tuplwe, id):
+    for obj in tuplwe:
+        if str(obj[0]) == str(id):
+            return obj
     return None
