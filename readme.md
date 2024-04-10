@@ -1,6 +1,6 @@
 # REST in CRUD API
 
-This API contains of four endpoints/methods for writing, reading, creating tables and deleting. It also includes a fully functional login and register implementation that uses BCrypt to convert strings into hashes.
+This API contains of 7 HTTP endpoints/methods for writing, reading, creating tables and deleting. It also includes a fully functional login and register implementation that uses BCrypt to convert strings into hashes.
 
 This API encrypts the email address and password of the user, and then stores it in session data and the SQLite3 database.
 
