@@ -1,4 +1,4 @@
-# REST in CRUD API
+# REST in $\color{red}{CRUD}$ API
 (this readme file is displayed in the root page when this flask web server starts, some links and stylesheets may not work by default)
 
 This API contains of 7 HTTP endpoints/methods for writing, reading, creating tables and deleting. It also includes a fully functional login and register implementation that uses BCrypt to convert strings into hashes.
