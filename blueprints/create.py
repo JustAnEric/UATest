@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from data import create_table, tables, table, by_id
 
 bp = Blueprint(
@@ -13,7 +13,11 @@ __all__ = ['bp']
 @bp.route('/create/<record>', methods=['PUT'])
 @bp.route('/create/<record>/', methods=['PUT'])
 def create(record):
-    create_table(str(record))
+    cols = request.headers.get('cols').split('(')[1].split(')')[0].split(',')
+    if cols[-1] == '':
+        create_table(str(record), cols[:-1])
+    else:
+        create_table(str(record), cols)
     return "[]"
 
 @bp.route('/records')
