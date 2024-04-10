@@ -24,6 +24,8 @@ There is **no authorization in these examples** so it should **not be used in a 
 [Log in](/login) or [Register](/register) for the demo.
 Once logged in, your information will appear below here.
 
+
+
 <style>
     a {
         color: #000;
