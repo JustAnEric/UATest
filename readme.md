@@ -9,8 +9,10 @@ This API encrypts the email address and password of the user, and then stores it
 - `/write/<record>/<id>` - [ `POST`, `PUT` ]: Writes an (existing) item to a record.
 - `/create/<record>` - [ `PUT` ]: Creates a new record, which items will be inserted into.
 - `/read/<record>/<id>` - [ `GET`, `POST` ]: Read an item under a record by its ID.
+  
 - `/login` - [ `GET`, `POST` ]: A page which demonstrates how the methods work.
-- `/register` - [ `GET`, `POST` ]: ............................................
+- `/register` - [ `GET`, `POST` ]: A page which demonstrates how the methods work.
+  
 - `/records` - [ `GET` ]: Grabs a list of all valid records/tables and returns their name in a list (`[]`).
 - `/records/<record>` - [ `GET` ]: Grabs list of tuples in a record/table. (basically returns the selected record/table's contents)
 - `/records/<record>/<id>` - [ `GET` ]: Grabs a tuple inside a list of tuples inside a record/table. (basically returns the specific tuple object with the correct ID in a record)
