@@ -14,12 +14,26 @@ __all__ = ['bp']
 @bp.route('/write/<record>/<id>/',methods=['PUT', 'POST'])
 def write(record, id):
     response = {'message': 'Written record successfully.', 'data': ''}
-    data = request.headers.get('data').split(', ')
+    data = request.headers.get('data').split('(')[1].split(')')[0].split(',')
+    cols = request.headers.get('cols').split('(')[1].split(')')[0].split(',')
     
-    create_table(record) # just try and create a table just in case to prevent errors
-    write_to_table(record, [
-        (id, *data) # read all values from request data
-    ])
+    if not data or not cols:
+        return "Invalid request headers."
+    
+    if data[-1].endswith(','):
+        create_table(record, cols[:-1]) # just try and create a table just in case to prevent errors
+        # excludes the last object of list.
+    else:
+        create_table(record, cols) # the normal object
+    
+    if data[-1].endswith(','):
+        write_to_table(record, [
+            (id, *data[:-1]) # read all values from request data, excluding last object of list.
+        ])
+    else:
+        write_to_table(record, [
+            (id, *data) # read all values from request data
+        ])
     
     #try:
         #db.execute(query)
