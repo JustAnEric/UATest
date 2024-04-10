@@ -3,9 +3,9 @@
 
 ## Run the program
 
-$\color{blue}{pip}$ install -r requirements.txt
+$\color{royalblue}{pip}$ install -r requirements.txt
 
-$\color{blue}{python}$ main.py
+$\color{royalblue}{python}$ main.py
 
 This API contains of 7 HTTP endpoints/methods for writing, reading, creating tables and deleting. It also includes a fully functional login and register implementation that uses BCrypt to convert strings into hashes.
 
