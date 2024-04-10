@@ -8,19 +8,19 @@ This API encrypts the email address and password of the user, and then stores it
 - `/`: Shows this Markdown file in a formatted HTML document.
   - No headers or data required.
 - `/delete/<record>/<id>` - [ `DELETE` ]: Deletes an item from a record.
-  - No headers or data required.
+  - No headers or data required. Replace `<record>` with the record name you would like to look through. Replace `<id>` with the item ID you'd like to remove.
 - `/write/<record>/<id>` - [ `POST`, `PUT` ]: Writes an (existing) item to a record.
-  - Requires `cols` header and `data` header
+  - Requires `cols` header and `data` header. Replace `<record>` with the record name you would like to look through. Replace `<id>` with the item ID you'd like to write to (can create new rows)
     - cols: `(last_login TEXT NULL,last_modified TEXT NULL)`
-      - Example column request.
+      - Example column request. This is for if the record doesn't exist. (required)
     - data: `(14thSept,15thOct)`
       - Example data request.
 - `/create/<record>` - [ `PUT` ]: Creates a new record, which items will be inserted into.
-  - Requires `cols` header
+  - Requires `cols` header. Replace `<record>` with the record name you'd like to create.
     - cols: `(last_login TEXT NULL,last_modified TEXT NULL)`
-      - Example column request.
+      - Example column request. (required)
 - `/read/<record>/<id>` - [ `GET` ]: Read an item under a record by its ID.
-  - No headers or data required.
+  - No headers or data required. Replace `<record>` with the record name you would like to look through. Replace `<id>` with the item ID you'd like to receive.
 
 - `/login` - [ `GET`, `POST` ]: A page which demonstrates how the methods work.
   - No headers or data required.
@@ -30,9 +30,9 @@ This API encrypts the email address and password of the user, and then stores it
 - `/records` - [ `GET` ]: Grabs a list of all valid records/tables and returns their name in a list (`[]`).
   - No headers or data required.
 - `/records/<record>` - [ `GET` ]: Grabs list of tuples in a record/table. (basically returns the selected record/table's contents)
-  - No headers or data required.
+  - No headers or data required. Replace `<record>` with the record name you'd like to read items from.
 - `/records/<record>/<id>` - [ `GET` ]: Grabs a tuple inside a list of tuples inside a record/table. (basically returns the specific tuple object with the correct ID in a record)
-  - No headers or data required.
+  - No headers or data required. Replace `<record>` with the record name you'd like to look through. Replace `<id>` with the item ID you'd like to receive.
 
 The code for the pure login implementation and methods are in the file: `blueprints/root.py`
 The code for just the API implementation or database methods are in the other blueprint files: `create.py`, `delete.py`, `read.py`, `write.py`.
