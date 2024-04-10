@@ -13,6 +13,7 @@ This API encrypts the email address and password of the user, and then stores it
 - `/register` - [ `GET`, `POST` ]: ............................................
 - `/records` - [ `GET` ]: Grabs a list of all valid records/tables and returns their name in a list (`[]`).
 - `/records/<record>` - [ `GET` ]: Grabs list of tuples in a record/table. (basically returns the selected record/table's contents)
+- `/records/<record>/<id>` - [ `GET` ]: Grabs a tuple inside a list of tuples inside a record/table. (basically returns the specific tuple object with the correct ID in a record)
 
 The code for the pure login implementation and methods are in the file: `blueprints/root.py`
 The code for just the API implementation or database methods are in the other blueprint files: `create.py`, `delete.py`, `read.py`, `write.py`.
